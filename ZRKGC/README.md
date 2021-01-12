@@ -1,8 +1,8 @@
-# \#ZRKGC
+# ZRKGC
 
  
 
-## \###Dependency
+## Dependency
 
 The code has been tested with:
 
@@ -23,6 +23,7 @@ Other dependencies need
 ```
 pip install -r requirements.txt
 ```
+## Data
 
 
 ### Test data
@@ -65,33 +66,12 @@ python3 preprocess/cmu_dog_preprocess.py ${data_path}/ITDD_data/src-test-tokeniz
 
 The `${data_path}` is location of raw dataset. So you could put the above three raw test datasets under `${data_path}` folder. The processed data will be  placed in the corresponding folder under `test_data` folder .
 
-## \###RUN
-
-## \###Model
-
-Download from (https://github.com/microsoft/unilm/tree/master/s2s-ft) to get `[unilm1.2-base-uncased]` model. The model are trained by using the same model configuration and WordPiece vocabulary as BERT Base.
-
-Note that  `unilm_v2_bert_pretrain` folder shoud  contains  three components: `bert_config.json` 、`unilm1.2-base-uncased.bin`  and  `vocab.txt`. And pls replace 'vocab.txt' with this from Google Drive (https://drive.google.com/file/d/1q-4QBE_H0fulb7_izEABOLbfu1jPGpJZ/view?usp=sharing).
-
-
-
-## \###Data
-
 ### Train data
 
 Download and unzip from Google Drive (https://drive.google.com/file/d/1bKjHtJMDwxsXRwQD2UQg37TdEfVg6l3k/view?usp=sharing).  Because of the large size of train data , this process will take some time.
 
-### Train:
 
-We train ZRKGC on 4 16GB Tesla V100 GPUs in a data parallel manner.
-
-```
-bash train.sh
-```
-
-Modify the `DATA_DIR`  in `train.sh` to what you download. The default path is `train_data`. Eval every 5000 step during training.  When current F1 is lower than previous F1, the training process will terminate.
-
-This process will spend about 12hours with a batch size 10.
+## RUN
 
 ### Test:
 
@@ -107,3 +87,31 @@ To get automatic metrics on 3 test datasets (Wizard, Topical Chat and CMU_DoG), 
 
 This period will spend about 2 hours on a 2X8G 2080Ti machine with the default setting which produces the following results in the paper.
 
+### Train:
+
+Download from (https://github.com/microsoft/unilm/tree/master/s2s-ft) to get `[unilm1.2-base-uncased]` model. The model are trained by using the same model configuration and WordPiece vocabulary as BERT Base.
+
+Note that  `unilm_v2_bert_pretrain` folder shoud  contains  three components: `bert_config.json` 、`unilm1.2-base-uncased.bin`  and  `vocab.txt`. And pls replace 'vocab.txt' with this from Google Drive (https://drive.google.com/file/d/1q-4QBE_H0fulb7_izEABOLbfu1jPGpJZ/view?usp=sharing).
+
+
+We train ZRKGC on 4 16GB Tesla V100 GPUs in a data parallel manner.
+
+```
+bash train.sh
+```
+
+Modify the `DATA_DIR`  in `train.sh` to what you download. The default path is `train_data`. Eval every 5000 step during training.  When current F1 is lower than previous F1, the training process will terminate.
+
+This process will spend about 12hours with a batch size 10.
+
+## Citation
+
+If you find ZRKGC useful in your work, you can cite the following paper:
+```
+@inproceedings{unilmv2,
+    title={UniLMv2: Pseudo-Masked Language Models for Unified Language Model Pre-Training},
+    author={Bao, Hangbo and Dong, Li and Wei, Furu and Wang, Wenhui and Yang, Nan and Liu, Xiaodong and Wang, Yu and Piao, Songhao and Gao, Jianfeng and Zhou, Ming and Hon, Hsiao-Wuen},
+    year={2020},
+    booktitle = "Preprint"
+}
+```
