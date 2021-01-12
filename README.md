@@ -94,7 +94,7 @@ Download from (https://github.com/microsoft/unilm/tree/master/s2s-ft) to get `[u
 Note that  `unilm_v2_bert_pretrain` folder shoud  contains  three components: `bert_config.json` 、`unilm1.2-base-uncased.bin`  and  `vocab.txt`. And pls replace 'vocab.txt' with this from Google Drive (https://drive.google.com/file/d/1q-4QBE_H0fulb7_izEABOLbfu1jPGpJZ/view?usp=sharing).
 
 
-We train ZRKGC on 4 16GB Tesla V100 GPUs in a data parallel manner.
+We train ZRKGC on 2 16GB Tesla V100 GPUs in a data parallel manner.
 
 ```
 bash train.sh
