@@ -108,10 +108,10 @@ This process will spend about 12hours with a batch size 10.
 
 If you find ZRKGC useful in your work, you can cite the following paper:
 ```
-@inproceedings{unilmv2,
-    title={UniLMv2: Pseudo-Masked Language Models for Unified Language Model Pre-Training},
-    author={Bao, Hangbo and Dong, Li and Wei, Furu and Wang, Wenhui and Yang, Nan and Liu, Xiaodong and Wang, Yu and Piao, Songhao and Gao, Jianfeng and Zhou, Ming and Hon, Hsiao-Wuen},
-    year={2020},
-    booktitle = "Preprint"
+@article{li2020zero,
+  title={Zero-Resource Knowledge-Grounded Dialogue Generation},
+  author={Li, Linxiao and Xu, Can and Wu, Wei and Zhao, Yufan and Zhao, Xueliang and Tao, Chongyang},
+  journal={arXiv preprint arXiv:2008.12918},
+  year={2020}
 }
 ```
